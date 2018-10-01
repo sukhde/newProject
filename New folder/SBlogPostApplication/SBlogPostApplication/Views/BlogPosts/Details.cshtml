@@ -71,7 +71,7 @@
 
     </dl>
 </div>
-<div>
+
     <div>
         Comments:
         @foreach (var comment in Model.Comments)
@@ -93,7 +93,7 @@
             Submit your comment!
         </div>
         <div>
-            @using (Html.BeginForm("Details" ,"BlogPosts", FormMethod.Post))
+            @using (Html.BeginForm("DetailsSlug", "BlogPosts", FormMethod.Post))
             {
                 <input type="hidden" name="slug" value="@Model.Slug" />
                 <textarea name="Body"></textarea>
@@ -104,8 +104,9 @@
                 <input type="submit" value="Submit" />
             }
         </div>
+
+  
     }
-  </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")

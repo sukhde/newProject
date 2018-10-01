@@ -7,7 +7,7 @@ using SBlogPostApplication.Models;
 
 namespace SBlogPostApplication.Controllers
 {
-    //[RequireHttps]
+   [RequireHttps]
     public class CommentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -93,7 +93,7 @@ namespace SBlogPostApplication.Controllers
                 commentDb.Body = comment.Body;
                 commentDb.UpdateReason = comment.UpdateReason;
                 db.SaveChanges();
-                return RedirectToAction("DetailsSlug", "BlogPosts", new { slug = commentDb.BlogPost.Slug });
+                return RedirectToAction("Details", "BlogPosts", new { slug = commentDb.BlogPost.Slug });
             }
 
             return View(comment);
@@ -125,7 +125,7 @@ namespace SBlogPostApplication.Controllers
             var slug = comment.BlogPost.Slug;
             db.Comments.Remove(comment);
             db.SaveChanges();
-            return RedirectToAction("DetailsSlug", "BlogPosts", new { slug }); ;
+            return RedirectToAction("Details", "BlogPosts", new { slug }); ;
         }
 
         protected override void Dispose(bool disposing)

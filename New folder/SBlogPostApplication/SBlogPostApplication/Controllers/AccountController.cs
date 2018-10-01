@@ -12,7 +12,7 @@ using SBlogPostApplication.Models;
 
 namespace SBlogPostApplication.Controllers
 {
-  //  [RequireHttps]
+   [RequireHttps]
     [Authorize]
     public class AccountController : Controller
     {

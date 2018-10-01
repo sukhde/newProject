@@ -8,16 +8,15 @@ using System.Web;
 using System.Web.Mvc;
 using SBlogPostApplication.Helpers;
 using SBlogPostApplication.Models;
-using static SBlogPostApplication.Helpers.StringUtilites;
-using Microsoft.AspNet.Identity;
 using PagedList;
 using PagedList.Mvc;
+using Microsoft.AspNet.Identity;
 using System.Net.Mail;
 using System.Web.Configuration;
 
 namespace SBlogPostApplication.Controllers
 {
-   // [RequireHttps]
+   [RequireHttps]
     public class BlogPostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -63,6 +62,7 @@ namespace SBlogPostApplication.Controllers
         //Post: BlogPosts/Details/5
         [HttpPost]
         public ActionResult DetailsSlug(string slug, string body)
+
         {
             if (slug == null)
             {
@@ -107,7 +107,7 @@ namespace SBlogPostApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                var Slug = StringUtilities.URLFriendly(blogPost.Title);
+                var Slug = StringUtilites.URLFriendly(blogPost.Title);
                 if (String.IsNullOrWhiteSpace(Slug))
                 {
                     ModelState.AddModelError("Title", "Invalid title");
@@ -169,7 +169,7 @@ namespace SBlogPostApplication.Controllers
                 //blog.Slug = blogPost.Slug;
                 blog.Title = blogPost.Title;
                 blog.Updated = DateTime.Now;
-                var Slug = StringUtilities.URLFriendly(blogPost.Title);
+                var Slug = StringUtilites.URLFriendly(blogPost.Title);
                 if (String.IsNullOrWhiteSpace(Slug))
                 {
                     ModelState.AddModelError("Title", "Invalid title");

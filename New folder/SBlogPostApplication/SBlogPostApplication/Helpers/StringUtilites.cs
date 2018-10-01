@@ -8,9 +8,7 @@ namespace SBlogPostApplication.Helpers
 {
     public class StringUtilites
     {
-        public class StringUtilities
-        {
-
+        
             public static string URLFriendly(string title)
             {
                 if (title == null) return "";
@@ -148,5 +146,5 @@ namespace SBlogPostApplication.Helpers
 
         }
 
-    }
+        
 }
